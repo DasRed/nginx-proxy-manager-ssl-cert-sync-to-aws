@@ -3,6 +3,7 @@ FROM node:22-alpine
 WORKDIR /var/www
 
 RUN mkdir -p /var/www/src
+COPY env /var/www/.env
 COPY ./src /var/www/src
 
 COPY ./package.json /var/www/package.json
