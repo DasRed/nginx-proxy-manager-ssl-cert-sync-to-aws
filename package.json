@@ -10,7 +10,6 @@
     "scripts": {
         "start": "node ./src/index.js",
         "dev": "node ./src/exec.js",
-        "build": "node ./build/index.js",
         "semantic-release": "semantic-release"
     },
     "author": "Marco Starker",
