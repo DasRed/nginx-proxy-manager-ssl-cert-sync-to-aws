@@ -1,0 +1,7 @@
+kind: template
+load: nodeProject.jsonnet
+data:
+  node: 22
+  port: 7880
+  deployToHost: 192.168.178.2
+  environmentVariables: '["AWS_CERTIFICATE", "AWS_ACCESS_KEY_ID", "AWS_SECRET_ACCESS_KEY"]'

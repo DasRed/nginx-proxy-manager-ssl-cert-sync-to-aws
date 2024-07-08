@@ -1,0 +1,64 @@
+{
+    "version": "0.0.0",
+    "name": "nginx-proxy-manager-ssl-cert-sync-to-aws",
+    "main": "src/index.js",
+    "type": "module",
+    "engines": {
+        "node": ">=22.4.0",
+        "npm": ">=10.8.1"
+    },
+    "scripts": {
+        "start": "node ./src/index.js",
+        "dev": "node ./src/exec.js",
+        "build": "node ./build/index.js",
+        "semantic-release": "semantic-release"
+    },
+    "author": "Marco Starker",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/DasRed/nginx-proxy-manager-ssl-cert-sync-to-aws.git"
+    },
+    "devDependencies": {
+        "@semantic-release/commit-analyzer": "^13.0.0",
+        "@semantic-release/git": "^10.0.1",
+        "@semantic-release/github": "^10.0.7",
+        "@semantic-release/npm": "^12.0.1",
+        "esbuild": "^0.23.0",
+        "esbuild-plugin-clear": "^1.0.1",
+        "esbuild-plugin-time": "^1.0.0",
+        "semantic-release": "^24.0.0",
+        "semantic-release-cli": "^5.4.6"
+    },
+    "release": {
+        "branches": [
+            "main"
+        ],
+        "plugins": [
+            "@semantic-release/commit-analyzer",
+            [
+                "@semantic-release/npm",
+                {
+                    "npmPublish": false
+                }
+            ],
+            [
+                "@semantic-release/git",
+                {
+                    "assets": [
+                        "package.json",
+                        "package-lock.json"
+                    ]
+                }
+            ],
+            "@semantic-release/github"
+        ]
+    },
+    "dependencies": {
+        "@aws-sdk/client-acm": "^3.609.0",
+        "@aws-sdk/credential-providers": "^3.609.0",
+        "command-line-args": "^6.0.0",
+        "cron": "^3.1.7",
+        "dotenv": "^16.4.5"
+    }
+}
