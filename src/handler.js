@@ -5,10 +5,7 @@ import commandline from './commandline.js';
 import {DEBUG, LOG} from './log.js';
 
 export async function handler() {
-    let directory = `${process.env.NGINX_PROXY_MANAGER_PATH ?? '/nginx-proxy-manager'}/letsencrypt/live`;
-    DEBUG(`Searching files in ${directory}`)
-    directory += '/' + fs.readdirSync(directory).find((entry) => fs.lstatSync(directory + '/' + entry).isDirectory());
-    DEBUG(`Files found in ${directory}`)
+    const directory = `${process.env.NGINX_PROXY_MANAGER_PATH ?? '/nginx-proxy-manager'}/letsencrypt/live/npm-${process.env.NGINX_PROXY_MANAGER_CERT_ID}`;
 
     DEBUG(`Loading files .../cert.pem, .../fullchain.pem, .../privkey.pem`);
     const certs = {

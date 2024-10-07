@@ -4,5 +4,6 @@ data:
   node: 22
   port: ''
   deployToHost: 192.168.178.2
-  environmentVariables: '["AWS_CERTIFICATE", "AWS_ACCESS_KEY_ID", "AWS_SECRET_ACCESS_KEY"]'
+  environmentVariables: '["NGINX_PROXY_MANAGER_CERT_ID", "AWS_CERTIFICATE", "AWS_ACCESS_KEY_ID", "AWS_SECRET_ACCESS_KEY"]'
   parameters: '-v /mnt/data/nginx-proxy-manager:/nginx-proxy-manager'
+  dockerName: 'npm-cert-sync-aws-dasred.de'
